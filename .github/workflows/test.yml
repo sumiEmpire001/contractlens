@@ -1,5 +1,8 @@
 name: Contract tests
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
@@ -14,3 +17,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm test
+
+      - name: Run sample scenario
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          node --input-type=module -e 'import {readFileSync} from "node:fs"; import {compare} from "./src/compare.mjs"; const report=compare(JSON.parse(readFileSync("examples/before.json")),JSON.parse(readFileSync("examples/after.json"))); console.log(JSON.stringify(report,null,2)); if(report.breaking!==2)process.exit(1);'
