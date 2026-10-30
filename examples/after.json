@@ -1,0 +1,16 @@
+{
+  "openapi": "3.0.3",
+  "info": {"title": "Synthetic profile API", "version": "2.0"},
+  "paths": {
+    "/profile": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Synthetic profile",
+            "content": {"application/json": {"schema": {"type": "object", "required": [], "properties": {"name": {"type": "integer"}}}}}
+          }
+        }
+      }
+    }
+  }
+}

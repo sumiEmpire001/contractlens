@@ -1,0 +1,10 @@
+{
+  "name": "@lord-sumi/contractlens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Conservative OpenAPI 3.0 contract change analysis",
+  "engines": {"node": ">=20"},
+  "scripts": {"test": "node --test", "demo": "node src/cli.mjs examples/before.json examples/after.json --json"},
+  "license": "MIT"
+}
